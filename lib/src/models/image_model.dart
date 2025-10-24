@@ -5,9 +5,9 @@ class ImageModel {
 
   ImageModel({this.id, this.url, this.title});
 
-  ImageModel.fromJson(Map<String, dynamic> parsedJson) {
-    id = parsedJson['id'];
-    title = parsedJson['title'];
-    url = parsedJson['url'];
+  ImageModel.fromJson(Map<String, dynamic> decodedJson) {
+    id = decodedJson['id'];
+    title = decodedJson['title'];
+    url = decodedJson['url'];
   }
 }

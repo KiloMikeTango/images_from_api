@@ -1,5 +1,5 @@
 name: images_from_internet
-description: "A new Flutter project."
+description: "I learned how to fetch images from fake api."
 publish_to: 'none'
 version: 0.1.0
 

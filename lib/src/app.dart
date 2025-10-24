@@ -4,7 +4,6 @@ import 'package:images_from_internet/src/widgets/image_list.dart';
 import 'models/image_model.dart';
 import 'dart:convert';
 
-
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -13,13 +12,10 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
- 
   int count = 0;
   List<ImageModel> images = [];
 
   void _fetchImage() async {
-  
-  
     if (count != 5) {
       count++;
       Uri parsedUrl = Uri.parse(
@@ -27,7 +23,8 @@ class _AppState extends State<App> {
       );
 
       var response = await get(parsedUrl);
-      ImageModel imageModel = ImageModel.fromJson(json.decode(response.body));
+      var jsonDecodedBody = json.decode(response.body);
+      ImageModel imageModel = ImageModel.fromJson(jsonDecodedBody);
 
       setState(() {
         images.add(imageModel);
@@ -39,8 +36,8 @@ class _AppState extends State<App> {
       );
 
       var response = await get(parsedUrl);
-
-      ImageModel imageModel = ImageModel.fromJson(json.decode(response.body));
+      var jsonDecodedBody = json.decode(response.body);
+      ImageModel imageModel = ImageModel.fromJson(jsonDecodedBody);
       setState(() {
         images.add(imageModel);
       });
@@ -52,7 +49,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body:ImageList(images: images),
+        body: ImageList(images: images),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             _fetchImage();
